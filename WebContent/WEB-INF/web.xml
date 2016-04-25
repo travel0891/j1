@@ -17,7 +17,6 @@
 		<servlet-class>com.servlet.StoryReplyServlet</servlet-class>
 	</servlet>
 
-
 	<servlet-mapping>
 		<servlet-name>StoryBeginServlet</servlet-name>
 		<url-pattern>/login</url-pattern>
