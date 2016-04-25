@@ -1,6 +1,7 @@
 package com.model;
 
 public class StoryList {
+	private int list_count;
 	private int list_id;
 	private String source_text;
 	private String state_text;
@@ -13,6 +14,18 @@ public class StoryList {
 	private int read_count;
 	private int reply_count;
 	private int has_read;
+
+	private String source_tag;
+	private String source_tel;
+	private String story_context;
+
+	public int getList_count() {
+		return list_count;
+	}
+
+	public void setList_count(int list_count) {
+		this.list_count = list_count;
+	}
 
 	public int getList_id() {
 		return list_id;
@@ -110,13 +123,37 @@ public class StoryList {
 		this.has_read = has_read;
 	}
 
-	@Override
-	public String toString() {
-		return "StoryList [list_id=" + list_id + ", source_text=" + source_text + ", state_text=" + state_text
-				+ ", type_text=" + type_text + ", story_text=" + story_text + ", handle_text=" + handle_text
-				+ ", create_text=" + create_text + ", create_user_photo=" + create_user_photo + ", create_time="
-				+ create_time + ", read_count=" + read_count + ", reply_count=" + reply_count + ", has_read=" + has_read
-				+ "]";
+	public String getSource_tag() {
+		return source_tag;
 	}
 
+	public void setSource_tag(String source_tag) {
+		this.source_tag = source_tag;
+	}
+
+	public String getSource_tel() {
+		return source_tel;
+	}
+
+	public void setSource_tel(String source_tel) {
+		this.source_tel = source_tel;
+	}
+
+	public String getStory_context() {
+		return story_context;
+	}
+
+	public void setStory_context(String story_context) {
+		this.story_context = story_context;
+	}
+
+	@Override
+	public String toString() {
+		return "StoryList [list_count=" + list_count + ", list_id=" + list_id + ", source_text=" + source_text
+				+ ", state_text=" + state_text + ", type_text=" + type_text + ", story_text=" + story_text
+				+ ", handle_text=" + handle_text + ", create_text=" + create_text + ", create_user_photo="
+				+ create_user_photo + ", create_time=" + create_time + ", read_count=" + read_count + ", reply_count="
+				+ reply_count + ", has_read=" + has_read + ", source_tag=" + source_tag + ", source_tel=" + source_tel
+				+ ", story_context=" + story_context + "]";
+	}
 }

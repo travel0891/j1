@@ -24,6 +24,7 @@ public class StoryReplyDao {
 		sbSQL.append(" ,context as reply_text ");
 		sbSQL.append(" ,create_emp_id as create_begin_id");
 		sbSQL.append(" ,(select emp_name from xpr_emp where id = create_emp_id) as create_begin_text ");
+		sbSQL.append(" ,(select row_id from xpr_emp where id = create_emp_id) as create_begin_photo ");
 		sbSQL.append(" ,create_time ");
 		sbSQL.append(" from xps_problem_heel ");
 		sbSQL.append(" where problem_id = ? ");
@@ -45,6 +46,7 @@ public class StoryReplyDao {
 			storyReplyModel.setReply_text(rs.getString("reply_text"));
 			storyReplyModel.setCreate_begin_id(rs.getInt("create_begin_id"));
 			storyReplyModel.setCreate_begin_text(rs.getString("create_begin_text"));
+			storyReplyModel.setCreate_begin_photo(rs.getString("create_begin_photo"));
 			storyReplyModel.setCreate_time(fmt.format(rs.getTimestamp("create_time")));
 
 			listStoryReply.add(storyReplyModel);

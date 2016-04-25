@@ -7,6 +7,7 @@ public class StoryReply {
 	private String reply_text;
 	private int create_begin_id;
 	private String create_begin_text;
+	private String create_begin_photo;
 	private String create_time;
 
 	public int getReply_id() {
@@ -49,6 +50,14 @@ public class StoryReply {
 		this.create_begin_text = create_begin_text;
 	}
 
+	public String getCreate_begin_photo() {
+		return create_begin_photo;
+	}
+
+	public void setCreate_begin_photo(String create_begin_photo) {
+		this.create_begin_photo = create_begin_photo;
+	}
+
 	public String getCreate_time() {
 		return create_time;
 	}
@@ -60,7 +69,7 @@ public class StoryReply {
 	@Override
 	public String toString() {
 		return "StoryReply [reply_id=" + reply_id + ", list_id=" + list_id + ", reply_text=" + reply_text
-				+ ", create_begin_id=" + create_begin_id + ", create_begin_text=" + create_begin_text + ", create_time="
-				+ create_time + "]";
+				+ ", create_begin_id=" + create_begin_id + ", create_begin_text=" + create_begin_text
+				+ ", create_begin_photo=" + create_begin_photo + ", create_time=" + create_time + "]";
 	}
 }

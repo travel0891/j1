@@ -12,6 +12,10 @@
 	</form>
 	<hr />
 	<form action="list" method="post">
+		<input type="text" name="type" value="type" /> <input type="text"
+			name="begin_id" value="begin_id" /> <input type="text"
+			name="list_id" value="list_id" /> <input type="text"
+			name="page_index" value="page_index" />
 		<button type="submit">post list</button>
 	</form>
 	<hr />

@@ -37,7 +37,7 @@ public final class StoryBeginServlet extends HttpServlet {
 		try {
 			StoryBegin storyBeginModel = storyBeginDao.get(tempModel);
 			if (storyBeginModel != null && storyBeginModel.getBegin_id() > 0) {
-				jsonString = "{\"count\":1,\"story\":\"pass\"}";
+				jsonString = "{\"count\":1,\"story\":" + storyBeginModel.getBegin_id() + "}";
 			} else {
 				jsonString = "{\"count\":0,\"story\":\"µ±Ç°ÕËºÅ»òÃÜÂë´íÎó\"}";
 			}
