@@ -1,7 +1,6 @@
 package com.servlet;
 
 import java.io.IOException;
-import java.rmi.activation.ActivationGroup;
 import java.sql.SQLException;
 import java.util.List;
 
