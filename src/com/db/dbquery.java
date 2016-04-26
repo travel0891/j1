@@ -3,7 +3,7 @@ package com.db;
 import java.sql.*;
 
 public class dbquery {
-	private static final String URL = "jdbc:sqlserver://localhost;databaseName=test;";
+	private static final String URL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=test;";
 	private static final String NAME = "sa";
 	private static final String PASSWORD = "sa";
 	private static Connection conn = null;

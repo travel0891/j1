@@ -23,11 +23,11 @@ public class StoryBeginDao {
 
 		Connection conn = dbquery.getConnection();
 		PreparedStatement ptmt = conn.prepareStatement(sbSQL.toString());
+		System.out.println(sbSQL.toString());
+
 		ptmt.setString(1, model.getAccount());
 		ptmt.setString(2, model.getPasswrod());
 		ResultSet rs = ptmt.executeQuery();
-
-		System.out.println(sbSQL.toString());
 
 		if (rs.next()) {
 			storyBegin = new StoryBegin();

@@ -63,9 +63,9 @@ public class StoryListDao {
 
 		Connection conn = dbquery.getConnection();
 		PreparedStatement ptmt = conn.prepareStatement(sbSQL.toString());
-		ptmt.setInt(1, begin_id);
-
 		System.out.println(sbSQL.toString());
+
+		ptmt.setInt(1, begin_id);
 
 		ResultSet rs = ptmt.executeQuery();
 
@@ -97,7 +97,23 @@ public class StoryListDao {
 		StoryList storyList = null;
 
 		SimpleDateFormat fmt = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
+
+		Connection conn = dbquery.getConnection();
+
 		StringBuilder sbSQL = new StringBuilder();
+		sbSQL.append(" insert into xps_problem_counts(page_id,dpt_id,emp_id,create_time) ");
+		sbSQL.append(" values ");
+		sbSQL.append(" (? ,0 ,? ,getdate()); ");
+
+		PreparedStatement ptmt1 = conn.prepareStatement(sbSQL.toString());
+		System.out.println(sbSQL.toString());
+
+		ptmt1.setInt(1, list_id);
+		ptmt1.setInt(2, begin_id);
+
+		ptmt1.execute();
+
+		sbSQL = new StringBuilder();
 		sbSQL.append(" select a.id as list_id ");
 		sbSQL.append(" ,isnull(c.customer_name,'') as source_text1 ");
 		sbSQL.append(" ,isnull(b.emp_name,'') as source_text2 ");
@@ -123,16 +139,15 @@ public class StoryListDao {
 		sbSQL.append(" left join xpr_emp as d with(nolock) on a.create_emp_id = d.id ");
 		sbSQL.append(" left join xpr_emp as e with(nolock) on a.handle_emp_id = e.id ");
 
-		sbSQL.append(" where a.id = ? ");
+		sbSQL.append(" where a.id = ? ; ");
 
-		Connection conn = dbquery.getConnection();
-		PreparedStatement ptmt = conn.prepareStatement(sbSQL.toString());
-		ptmt.setInt(1, begin_id);
-		ptmt.setInt(2, list_id);
-
-		ResultSet rs = ptmt.executeQuery();
-
+		PreparedStatement ptmt2 = conn.prepareStatement(sbSQL.toString());
 		System.out.println(sbSQL.toString());
+
+		ptmt2.setInt(1, begin_id);
+		ptmt2.setInt(2, list_id);
+
+		ResultSet rs = ptmt2.executeQuery();
 
 		if (rs.next()) {
 			storyList = new StoryList();
