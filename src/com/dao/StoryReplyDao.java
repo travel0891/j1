@@ -32,11 +32,10 @@ public class StoryReplyDao {
 
 		Connection conn = dbquery.getConnection();
 		PreparedStatement ptmt = conn.prepareStatement(sbSQL.toString());
+		System.out.println(sbSQL.toString());
 		ptmt.setInt(1, list_id);
 
 		ResultSet rs = ptmt.executeQuery();
-
-		System.out.println(sbSQL.toString());
 
 		while (rs.next()) {
 			storyReplyModel = new StoryReply();
@@ -64,11 +63,10 @@ public class StoryReplyDao {
 
 		Connection conn = dbquery.getConnection();
 		PreparedStatement ptmt = conn.prepareStatement(sbSQL.toString());
+		System.out.println(sbSQL.toString());
 		ptmt.setInt(1, model.getList_id());
 		ptmt.setString(2, model.getReply_text());
 		ptmt.setInt(3, model.getCreate_begin_id());
-
-		System.out.println(sbSQL.toString());
 
 		return ptmt.executeUpdate() > 0 ? true : false;
 	}
@@ -79,9 +77,8 @@ public class StoryReplyDao {
 
 		Connection conn = dbquery.getConnection();
 		PreparedStatement ptmt = conn.prepareStatement(sbSQL);
-		ptmt.setInt(1, reply_id);
-
 		System.out.println(sbSQL.toString());
+		ptmt.setInt(1, reply_id);
 
 		return ptmt.executeUpdate() > 0 ? true : false;
 	}

@@ -18,21 +18,19 @@ public class StoryPageDao {
 		StoryPage storyPage = null;
 
 		StringBuilder sbSQL = new StringBuilder();
-		sbSQL.append(" select distinct 1 as page_id "); // id as page_id
+		sbSQL.append(" select distinct 1 as page_id ");
 		sbSQL.append(" ,page_id as list_id ");
 		sbSQL.append(" ,(select emp_name from xpr_emp where id = emp_id) as page_user_text ");
 		sbSQL.append(" ,(select row_id from xpr_emp where id = emp_id) as page_user_photo ");
 		sbSQL.append(" from xps_problem_counts ");
 		sbSQL.append(" where page_id > 0 and page_id = ? ");
-		// sbSQL.append(" order by create_time asc; ");
 
 		Connection conn = dbquery.getConnection();
 		PreparedStatement ptmt = conn.prepareStatement(sbSQL.toString());
+		System.out.println(sbSQL.toString());
 		ptmt.setInt(1, list_id);
 
 		ResultSet rs = ptmt.executeQuery();
-
-		System.out.println(sbSQL.toString());
 
 		while (rs.next()) {
 			storyPage = new StoryPage();
