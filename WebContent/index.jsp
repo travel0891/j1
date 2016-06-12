@@ -5,6 +5,7 @@
 <title>test</title>
 </head>
 <body>
+	<!-- 
 	<form action="login" method="post">
 		<input type="text" name="storyAccount" value="storyAccount" /> <input
 			type="text" name="storyPasswrod" value="storyPasswrod" />
@@ -27,5 +28,6 @@
 			name="reply_id" value="reply_id" />
 		<button type="submit">post reply list</button>
 	</form>
+-->
 </body>
 </html>
